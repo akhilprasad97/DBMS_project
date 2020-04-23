@@ -1,0 +1,39 @@
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<div class = "container">
+<div class="imgcontainer">
+  <h1 class="cyan-text">Passenger Name : {{name}}</h1>
+  <h1 class="cyan-text">Passport Number : {{passport}}</h1>
+</div>
+<table align:"center" cellpadding="7" cellspacing="7" class="bordered">
+  <tr>
+    <th width="50px">No</th>
+    <th>Crime Name</th>
+    <th>Penalty</th>
+  </tr>
+
+{{#each penalty}}
+<tr>
+    <td>{{@index}}</td>
+    <td>{{name}}</td>
+    <td>{{penalty}}</td>
+</tr>
+{{/each}}
+</table>
+<br>
+<div class="imgcontainer">
+  <h5 class="cyan-text" id="sum">The total penalty paid is {{sum}}</h5><br><br>
+  <h5 class="cyan-text" id="sum">Payment Type : {{payment}}</h5><br><br>
+</div>
+<br>
+<button onclick="goBack()" class="btn waves-light waves-effect center">Go Back
+  <i class="material-icons left">arrow_back</i>
+</button>
+<script>
+window.print();
+</script>
+</div>

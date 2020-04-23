@@ -1,0 +1,95 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var select = $('#select').material_select();
+  });
+</script>
+<div class="container">
+<div class="imgcontainer">
+  <h1 class="cyan-text center">Update Request</h1>
+</div>
+
+<form action={{link}} method="post">
+  <p>
+    <input type="checkbox" id="emailId" name="emailIdcb" value=1 />
+    <label for="emailId">Email ID</label><br>
+    <input type="email" id="emailIdip" placeholder="Enter Email ID" name="emailId" required><br>
+  </p>
+  <p>
+    <input type="checkbox" id="phoneNo" name="phoneNocb" value=1 />
+    <label for="phoneNo">Phone Number</label><br>
+    <input id="phoneNoip" type="tel" placeholder="Enter Phone Number" name="phoneNo" required><br>
+  </p>
+  <p>
+    <input type="checkbox" id="airportcb" name="airportcb" value=1 />
+    <label for="airportcb">Click to request for transfer</label><br>
+    <select id="airportip" disabled type="text" placeholder="Enter Airport Name" name="airport" required><br>
+      <option value="" disabled selected>Choose your option</option>
+      {{#each airport}}
+        <option class="chk" value={{city}}>{{city}}</option>
+      {{/each}}
+    </select>
+  </p>
+  <script>
+    function alt() {
+      window.alert("Changes Made Successfully");
+    }
+  </script>
+  <button onclick="alt()" type="submit" class="btn waves-light waves-effect center">Submit
+    <i class="material-icons right">send</i>
+  </button>
+</form>
+</div>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+  $(function () {
+    var button =   $('#emailIdip');
+    button.attr('disabled', 'disabled');
+    $('#emailId').change(function (e) {
+      if(this.checked){
+        button.removeAttr('disabled');
+      }
+      else {
+        button.attr('disabled', 'disabled');
+      }
+    })
+  })
+  </script>
+  <script>
+    $(function () {
+      var button =   $('#phoneNoip');
+      button.attr('disabled', 'disabled');
+      $('#phoneNo').change(function (e) {
+        if(this.checked){
+          button.removeAttr('disabled');
+        }
+        else {
+          button.attr('disabled', 'disabled');
+        }
+      })
+    })
+    </script>
+<script>
+$(function () {
+  var button =   $('#airportip');
+  var check = $(".chk");
+  var select = $('#select');
+  check.prop('disabled', true);
+  button.attr('disabled', true);
+  $('select').material_select('destroy');
+  $('#airportcb').change(function (e) {
+    if(this.checked){
+      button.prop('disabled', false);
+      check.prop('disabled', false);
+      $(document).ready(function() {
+        $('select').material_select();
+  });
+    }
+    else {
+      button.prop('disabled', true);
+      check.prop('disabled', true);
+      $('select').material_select('destroy');
+    }
+  })
+})
+</script>

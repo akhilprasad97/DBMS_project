@@ -1,0 +1,58 @@
+<script>
+  function calc_penalty(sum) {
+    document.getElementById('sum').innerHTML = "The total penalty to be paid is "+sum;
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var select = $('#select').material_select();
+  });
+</script>
+<div class = "container">
+<div class="imgcontainer">
+  <h1 class="cyan-text">Penalty for {{passenger}}</h1>
+</div>
+<div>
+<table align:"center" cellpadding="7" cellspacing="7" class="bordered">
+  <tr>
+    <th width="50px">No</th>
+    <th>Crime</th>
+    <th>Penalty</th>
+  </tr>
+
+{{#each crime}}
+<tr>
+    <td>{{@index}}</td>
+    <td>{{name}}</td>
+    <td>
+    {{penalty}}
+    </td>
+</tr>
+{{/each}}
+</table>
+<br>
+<br>
+<button onclick="calc_penalty({{sum}})" type="submit" class="btn waves-light waves-effect center">Calculate Penalty
+  <i class="material-icons right">send</i>
+</button>
+</div>
+<br> <br> <br>
+
+<div class="imgcontainer">
+  <h5 class="cyan-text" id="sum"></h5><br><br>
+</div>
+
+<form action={{link}} method="post">
+  <label><b>Payment Type</b></label>
+  <select type="text" placeholder="Enter Payment Type" name="payment_type" required><br>
+    <option value="" disabled selected>Choose your option</option>
+    {{#each payment}}
+      <option value={{name}}>{{name}}</option>
+    {{/each}}
+  </select>
+  <button type="submit" class="btn waves-light waves-effect center">Click for Payment
+    <i class="material-icons right">send</i>
+  </button>
+</form>
+</div>

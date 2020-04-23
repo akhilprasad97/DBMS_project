@@ -1,0 +1,60 @@
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<div class="container">
+<div class="imgcontainer ">
+  <h1 class="cyan-text">Luggage Check</h1>
+</div>
+<form action={{link}} method="post">
+<table align:"center" cellpadding="7" cellspacing="7" class="bordered">
+  <tr>
+    <th width="50px"></th>
+    <th>Officer ID</th>
+    <th>Officer Name</th>
+    <th>Passport Number</th>
+    <th>Aiport ID</th>
+  </tr>
+
+{{#each officer}}
+<tr>
+    <td>
+      <input class="chk" type="checkbox" name="delete" value={{officerId}} id={{officerId}} />
+      <label for={{officerId}}></label>
+    </td>
+    <td>{{officerId}}</td>
+    <td>{{name}}</td>
+    <td>{{passportNo}}</td>
+    <td>{{airportId}}</td>
+</tr>
+{{/each}}
+</table>
+<br>
+<br>
+<a class="btn waves-light waves-effect center" href="/correct_credentials_admin">Go Back
+  <i class="material-icons left">arrow_back</i>
+</a>
+<button class="btn waves-light waves-effect center" type="submit" id="submit">Delete
+  <i class="material-icons delete">delete</i>
+</button>
+
+</form>
+</div>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+  $(function () {
+    var button =   $('#submit');
+    button.attr('disabled', 'disabled');
+    $('input:checkbox').change(function (e) {
+      if(this.checked || ($('.chk').filter(':checked').length >= 1)){
+        button.removeAttr('disabled');
+      }
+      else {
+        button.attr('disabled', 'disabled');
+      }
+    })
+  })
+  </script>

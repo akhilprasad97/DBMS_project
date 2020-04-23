@@ -1,0 +1,22 @@
+
+  <div class="imgcontainer">
+    <h1 class="cyan-text center">USER LOGIN</h1>
+    <h3 class="center white-text">{{whose}} Login</h3>
+  </div>
+  <div class="container">
+    <div class="errBox red center">
+    <h5 class="white-text" class="center errText">
+      {{tagline}}
+    </h5>
+  </div>
+
+    <form action={{link}} method="post">
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <button type="submit" class="btn waves-light waves-effect center">Login
+        <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var select = $('#select').material_select();
+  });
+</script>
+<div class="container">
+<div class="imgcontainer">
+  <h1 class="cyan-text">{{passenger}}'s CRIMINAL PROFILE</h1>
+</div>
+
+<div>
+<table align:"center" cellpadding="7" cellspacing="7" class="bordered">
+  <tr>
+    <th width="50px">No</th>
+    <th>Crime</th>
+  </tr>
+
+<tr>
+{{#if cash}}
+    <td>1</td>
+    <td>Cash Carried exceeds 5000 dollars</td>
+{{/if}}
+</tr>
+
+<tr>
+{{#if gold}}
+    <td>2</td>
+    <td>Gold Carried exceeds 1000 grams</td>
+{{/if}}
+</tr>
+
+<tr>
+{{#if animal}}
+    <td>3</td>
+    <td>Illegeal animal being Carried</td>
+{{/if}}
+</tr>
+
+</div>
+</table>
+<br> <br> <br>
+
+<form action={{link}} method="post">
+  <label><b>Police Station</b></label>
+  <select type="text" placeholder="Enter Police Station" name="area_name" required><br>
+    <option value="" disabled selected>Choose your option</option>
+    {{#each police_station}}
+      <option value={{area}}>{{area}}</option>
+    {{/each}}
+  </select>
+  <button type="submit" class="btn waves-light waves-effect center">Submit
+    <i class="material-icons right">send</i>
+  </button>
+</form>
+</div>

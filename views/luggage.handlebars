@@ -1,0 +1,35 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var select = $('#select').material_select();
+  });
+</script>
+<div class="imgcontainer">
+  <h1 class="cyan-text center">Customs Management System</h1>
+</div>
+<div class="container">
+  <div class="errBox red center">
+  <h5 class="white-text" class="center errText">
+    {{tagline}}
+  </h5>
+</div>
+  <form action={{link}} method="post">
+    {{#if extra}}
+      <label><b>Passport Number</b></label>
+      <input type="text" placeholder="Enter Passport Number" name="pno" required>
+    {{/if}}
+    <label><b>Cash Quantity</b></label>
+    <input type="number" placeholder="Enter Cash Quantity(in dollars)" name="cash" min="0" max="10000000000" class="validate" required><br>
+    <label><b>Gold Quantity</b></label>
+    <input type="number" placeholder="Enter Gold Quantity(in grams)" name="gold" min="0" max="10000000000" class="validate" required><br>
+    <label><b>Animal Id</b></label>
+    <select type="text" placeholder="Enter Animal" name="animal" required><br>
+      <option value="" disabled selected>Choose your option</option>
+      {{#each animal}}
+        <option value={{animalname}}>{{animalname}}</option>
+      {{/each}}
+    </select>
+    <button type="submit" class="btn waves-light waves-effect center">Submit
+      <i class="material-icons right">send</i>
+    </button>
+  </form>

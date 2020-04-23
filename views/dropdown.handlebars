@@ -1,0 +1,66 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.slider').slider();
+  });
+</script>
+<script>
+$('.slider').slider('pause');
+// Start slider
+$('.slider').slider('start');
+// Next slide
+$('.slider').slider('next');
+// Previous slide
+$('.slider').slider('prev');
+</script>
+<div class="container">
+<nav class="cyan">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo" style="padding-left : 2em;">Customs Management System</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down" class="tabs">
+      <li><a href = "admin"> Admin </a></li>
+      <li><a href = "officer"> Officer </a></li>
+      <li>  <a href = "info"> Information about Indian Customs </a></li>
+      <li><a href = "passenger_info"> Passenger </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="slider">
+  <ul class="slides">
+    <li>
+      <img src="http://localhost:3000/images/used.jpg"> <!-- random image -->
+    </li>
+    <li>
+      <img src="http://localhost:3000/images/GST.jpg"> <!-- random image -->
+    </li>
+    <li>
+      <img src="http://localhost:3000/images/july.jpg"> <!-- random image -->
+    </li>
+  </ul>
+</div>
+<footer class="page-footer cyan">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Government Of India</h5>
+                <p class="grey-text text-lighten-4">Used by airports of India</p>
+              </div>
+          </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Created by Akhil and Aditya
+            </div>
+          </div>
+        </footer>
+</div>
+<script>
+$(document).ready(function(){
+  $('ul.tabs').tabs('select_tab', 'tab_id');
+});
+</script>
+<script>
+$(document).ready(function(){
+ $('ul.tabs').tabs();
+});
+</script>

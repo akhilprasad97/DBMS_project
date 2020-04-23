@@ -1,0 +1,39 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var select = $('#select').material_select();
+  });
+</script>
+<div class="imgcontainer">
+  <h1 class="cyan-text center">Add Officer Records</h1>
+  <h3 class="center white-text">Login</h3>
+</div>
+<div class="container">
+  <div class="errBox red center">
+  <h5 class="white-text" class="center errText">
+    {{tagline}}
+  </h5>
+</div>
+
+  <form action={{link}} method="post">
+    <label><b>Officer ID</b></label>
+    <input type="number" value="{{id}}" name="id" readonly required><br>
+    <label><b>Officer Name</b></label>
+    <input type="text" placeholder="Enter Officer Name" name="name" class="validate" required><br>
+    <label><b>Passport Number</b></label>
+    <input type="text" placeholder="Enter Passport Number" name="passportNo" class="validate" maxlength="10" size="10" required><br>
+    <label><b>Phone Number</b></label>
+    <input type="number" placeholder="Enter Phone Number" name="phoneNo" class="validate" required><br>
+    <label><b>Email ID</b></label>
+    <input type="email" placeholder="Enter Email ID" name="emailId" class="validate" required><br>
+    <label><b>Airport</b></label>
+    <select type="text" placeholder="Enter Airport Name" name="airport" required><br>
+      <option value="" disabled selected>Choose your option</option>
+      {{#each airport}}
+        <option value={{city}}>{{city}}</option>
+      {{/each}}
+    </select>
+    <button type="submit" class="btn waves-light waves-effect center">Submit
+      <i class="material-icons right">send</i>
+    </button>
+  </form>

@@ -1,0 +1,31 @@
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<div class = "container">
+<div class="imgcontainer">
+  <h1 class="cyan-text">Criminal Details</h1>
+</div>
+<table align:"center" cellpadding="7" cellspacing="7" class="bordered">
+  <tr>
+    <th width="50px">No</th>
+    <th>Criminal Name</th>
+    <th>Police Station Pincode</th>
+  </tr>
+
+{{#each criminal}}
+<tr>
+    <td>{{@index}}</td>
+    <td>{{name}}</td>
+    <td>{{pincode}}</td>
+</tr>
+{{/each}}
+</table>
+<br>
+<br>
+<button onclick="goBack()" class="btn waves-light waves-effect center">Go Back
+  <i class="material-icons left">arrow_back</i>
+</button>
+</div>

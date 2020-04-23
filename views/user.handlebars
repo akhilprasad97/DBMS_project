@@ -1,0 +1,47 @@
+<div class = "container">
+<div class="imgcontainer">
+  <h1 class="cyan-text">Penalty for {{passenger}}</h1>
+</div>
+{{#if crime}}
+  <script>window.alert("You will be taken as a criminal for the items you are carrying");</script>
+{{/if}}
+<div>
+<table align:"center" cellpadding="7" cellspacing="7" class="bordered">
+  <tr>
+    <th width="50px">No</th>
+    <th>Crime</th>
+    <th>Penalty</th>
+  </tr>
+<tr>
+    <td>1</td>
+    <td>Cash</td>
+    <td>
+    {{penalty_cash}}
+    </td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>Gold</td>
+    <td>
+    {{penalty_gold}}
+    </td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>Animal</td>
+    <td>
+    {{penalty_animal}}
+    </td>
+</tr>
+</table>
+<br>
+<br>
+</div>
+<div class="imgcontainer">
+  <h5 class="cyan-text" id="sum">The total penalty to be paid is {{sum}}</h5><br><br>
+</div>
+
+
+<a href = '/' class="btn waves-light waves-effect center">Go Back
+  <i class="material-icons left">arrow_back</i>
+</a>

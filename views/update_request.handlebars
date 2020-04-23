@@ -1,0 +1,41 @@
+<script>
+$(document).ready(function(){
+  $('.collapsible').collapsible();
+});
+</script>
+<div class="container">
+<div class="imgcontainer">
+  <h1 class="cyan-text center">Update Request</h1>
+</div>
+
+<ul class="collapsible popout" data-collapsible="accordion">
+  {{#each request}}
+    <li id={{officerId}}>
+      <div class="collapsible-header">{{officerId}}</div>
+      <div class="collapsible-body">
+        <span>Tranfer Request to {{city}}</span>
+        <br>
+        <form action="/action_transfer" method="post">
+          <p>
+            <input name="decision" type="radio" id="test1_{{officerId}}" value=1 required/>
+            <label for="test1_{{officerId}}">Accept</label>
+          </p>
+          <p>
+            <input name="decision" type="radio" id="test2_{{officerId}}" value=0/>
+            <label for="test2_{{officerId}}">Reject</label>
+          </p>
+          <p>
+          <input type="number" name="officerId" value={{officerId}} hidden/>
+          <button type="submit" class="btn waves-light waves-effect center">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+    </li>
+    {{/each}}
+</ul>
+<a class="btn waves-light waves-effect center" href="/correct_credentials_admin">Go Back
+  <i class="material-icons left">arrow_back</i>
+</a>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
